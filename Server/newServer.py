@@ -77,8 +77,8 @@ class Server():
         self.firstRound = True
         try:
             self.address = urllib.request.urlopen('https://ident.me').read().decode('utf-8')
-            #self.server.bind(("0.0.0.0", PORT))
-            self.server.bind((self.address, PORT))
+            self.server.bind(("0.0.0.0", PORT))
+            #self.server.bind((self.address, PORT)) #for local server hosting (one above for global hosting)
         except Exception as e:
             print(e)
             print(f"Failed to bind to public IP: {self.address}, will now try binding to local IP.")
